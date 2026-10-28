@@ -22,7 +22,7 @@ function App() {
 
     try {
       const response = await fetch(
-        'http://localhost:8080/api/research/process',
+          'https://researchmate-backend-zw17.onrender.com/api/research/process',
         {
           method: 'POST',
           headers: {
