@@ -1,15 +1,22 @@
 # ResearchMate — AI Research Assistant
 
-ResearchMate is a full-stack AI-powered web application that helps users understand research content, generate concise summaries, and discover related ideas using Google's Gemini API.
+**ResearchMate** is a full-stack AI-powered web application that helps users understand research content by generating concise summaries and suggesting related topics using Google's Gemini API.
+
+## 🌐 Live Demo
+
+- **Frontend:** https://researchmate-ai-research-assistant.vercel.app
+- **Backend:** https://researchmate-backend-zw17.onrender.com
+
+Try the live application to summarize research content and explore related ideas. The backend runs on Render's free plan, so the first request after inactivity may take longer.
 
 ## ✨ Features
 
-- **AI Summarization:** Generate summaries of research content.
+- **AI Summarization:** Convert research content into concise, understandable summaries.
 - **Idea Suggestions:** Discover related topics and further reading ideas.
-- **Interactive Web Interface:** A responsive React-based user interface.
-- **Input Validation:** Validates requests and handles invalid input.
-- **Error Handling:** Displays helpful error messages when requests fail.
-- **Secure API Configuration:** Loads the Gemini API key from an environment variable.
+- **Interactive Interface:** Use a responsive React-based web interface.
+- **Input Validation:** Handle empty or invalid input.
+- **Error Handling:** Display helpful messages when requests fail.
+- **Secure API Configuration:** Read the Gemini API key from an environment variable.
 
 ## 🛠️ Tech Stack
 
@@ -20,7 +27,7 @@ ResearchMate is a full-stack AI-powered web application that helps users underst
 - CSS
 
 **Backend**
-- Java
+- Java 17
 - Spring Boot
 - Maven
 - REST API
@@ -29,35 +36,41 @@ ResearchMate is a full-stack AI-powered web application that helps users underst
 **AI Integration**
 - Google Gemini API
 
+**Deployment and Tools**
+- Git and GitHub
+- Docker
+- Render
+- Vercel
+- IntelliJ IDEA
+
 ## 📁 Project Structure
 
 ```text
 research-assistant/
-├── frontend/                 # React + Vite frontend
+├── frontend/
 │   ├── src/
 │   ├── package.json
 │   └── README.md
 ├── src/
 │   └── main/
-│       ├── java/             # Spring Boot source code
+│       ├── java/
 │       └── resources/
 │           └── application.properties
-├── pom.xml                   # Maven dependencies
+├── pom.xml
+├── Dockerfile
 ├── mvnw
 ├── mvnw.cmd
 └── README.md
 ```
 
-## ⚙️ Prerequisites
+## 🚀 Run Locally
 
-Install the following before running the application:
+### Prerequisites
 
-- Java JDK
+- Java JDK 17
 - Node.js and npm
 - Git
 - A Google Gemini API key
-
-## 🚀 Getting Started
 
 ### 1. Clone the repository
 
@@ -68,17 +81,17 @@ cd researchmate-ai-research-assistant
 
 ### 2. Configure the Gemini API key
 
-Set an environment variable named `GEMINI_API_KEY` containing your own Gemini API key.
+Set an environment variable named `GEMINI_API_KEY` with your own API key.
 
-The backend reads it from `src/main/resources/application.properties`:
+The backend reads the key through `application.properties`:
 
 ```properties
 gemini.api.key=${GEMINI_API_KEY}
 ```
 
-**Security:** Never commit your actual API key to GitHub.
+Never commit your actual API key to GitHub.
 
-### 3. Run the Spring Boot backend
+### 3. Start the backend
 
 On Windows, from the project root, run:
 
@@ -86,13 +99,13 @@ On Windows, from the project root, run:
 .\mvnw.cmd spring-boot:run
 ```
 
-The backend should start at:
+The backend normally starts at:
 
 `http://localhost:8080`
 
-Ensure `GEMINI_API_KEY` is available to the process running Spring Boot.
+Make sure `GEMINI_API_KEY` is available to the process running Spring Boot.
 
-### 4. Run the React frontend
+### 4. Start the frontend
 
 Open a second terminal:
 
@@ -102,17 +115,19 @@ npm install
 npm run dev
 ```
 
-Open the local URL displayed by Vite in your terminal, usually:
+Open the local URL printed by Vite, usually:
 
 `http://localhost:5173`
 
 Keep both the frontend and backend running while using the application.
 
-## 🔌 API Endpoint
+## 🔌 API Reference
 
-**Process research content**
+**Endpoint:** `POST /api/research/process`
 
-`POST http://localhost:8080/api/research/process`
+Local URL:
+
+`http://localhost:8080/api/research/process`
 
 Example request:
 
@@ -125,21 +140,24 @@ Example request:
 
 Supported operations:
 
-- `summarize` — summarizes the submitted content.
+- `summarize` — summarizes submitted research content.
 - `suggest` — suggests related topics and ideas.
 
-The backend validates requests and returns appropriate error responses for invalid input.
+The API validates incoming requests and returns responses from the backend.
 
-## 🔐 Security Notes
+## 🔐 Security
 
-- Keep API keys out of source code and version control.
-- Configure secrets through environment variables.
-- Do not share API keys in screenshots, commits, or public files.
+- Keep API keys in environment variables.
+- Never commit secrets or credentials to version control.
+- Keep the Gemini API key on the backend; do not expose it in frontend code.
+- Use appropriate CORS restrictions for production.
 
 ## 🎯 Project Goal
 
-The goal of ResearchMate is to make research and learning easier by turning submitted content into understandable summaries and useful ideas.
+ResearchMate aims to make research and learning easier by turning submitted content into understandable summaries and useful follow-up ideas.
 
 ## 👨‍💻 Author
 
 Developed as a full-stack AI project using React, Java, Spring Boot, and the Gemini API.
+
+**GitHub:** [mohammad-rahil-codes](https://github.com/mohammad-rahil-codes)
